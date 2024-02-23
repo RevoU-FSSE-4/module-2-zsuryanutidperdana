@@ -25,6 +25,31 @@
   src: url(./font/Roboto-Regular.ttf);
 }
 
+@counter-style animal-lists {
+  system: cyclic;
+  symbols: "\1F99B" "\1F418" "\1F98F";
+  suffix: " ";"
+}
+
+@keyframes breathing {
+  from {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 50%;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 * {
   font-family: var(--default-font);
   margin: 0;
@@ -49,6 +74,14 @@ body {
     display: flex;
     column-gap: 1em;
     align-items: center;
+  }
+
+  .header-lang-wrapper > p {
+    transition: all 0.3s;
+    width: auto;
+    height: 100%;
+    align-items: center;
+    display: flex;
   }
 
   .header-lang-wrapper > p:hover {
@@ -76,7 +109,6 @@ body {
     border-radius: 3px;
   }
 
-
   input[type="text"] {
     border: none;
     height: 1.95em;
@@ -100,6 +132,8 @@ body {
   a {
     text-decoration: none;
     color: var(--text-color);
+    transition-property: color;
+    transition-duration: 0.5s;
   }
 
   a:visited {
@@ -149,13 +183,17 @@ body {
     padding: 0 0.8em;
   }
 
+  .main-bg {
+    width: 100%;
+  }
+
   .flex-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     row-gap: 1.5em;
     margin-top: 2em;
-    padding-left: 1em;
+    width: 100%;
   }
   .flex-text > img {
     width: 10%;
@@ -169,41 +207,489 @@ body {
     margin-right: 1em;
   }
 
+  .flex-container > h2 {
+    margin-left: 0.5em;
+  }
+
   .grid-container {
     display: grid;
     width: 100%;
-    height: 40em;
+    height: 150vh;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     row-gap: 0.5em;
-    margin-bottom: 3.5em;
+    column-gap: 0.3em;
+    background-image: url(https://img.freepik.com/free-vector/wrinkled-paper-texture_1100-12.jpg?size=626&ext=jpg&ga=GA1.1.1413411104.1708397182&semt=ais);
+    background-repeat: no-repeat;
+    background-size: contain;
   }
   .grid-item {
-    border: 1px solid black;
-    width: 90%;
+    width: 100%;
     height: 100%;
   }
 
   #grid-1 {
     grid-column: 1 / 3;
     grid-row: 1 / 5;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20vh;
+    padding-top: 10%;
   }
 
   #grid-2 {
     grid-column: 3;
     grid-row: 1 / 5;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   #grid-3 {
     grid-column: 4;
     grid-row: 1;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   #grid-4 {
     grid-row: 2/4;
     grid-column: 4/5;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 
   #grid-5 {
     grid-row: 4/5;
     grid-column: 4/5;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
+
+  .svg-grid {
+    width: 25vw;
+    height: 25vh;
+  }
+
+  .medium-card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 5%;
+  }
+
+  .medium-card .large {
+    font-family: var(--brand-font);
+    font-size: 3.5vw;
+    text-wrap: wrap;
+    text-shadow: 3px 4px 14px black;
+
+  }
+
+  .breath {
+    animation-name: breathing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    font-family: var(--brand-font);
+    font-size: 3.5vw;
+    text-wrap: wrap;
+    text-shadow: 3px 4px 14px black;
+    margin-top: 0;
+  }
+
+  .image-in-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  p.card-content.medium {
+    position: absolute;
+    top: 0;
+    margin-left: 0.8em;
+    text-wrap: wrap;
+    font-family: var(--default-font);
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+
+  .overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 1s ease-out;
+    cursor: pointer;
+  }
+
+  .overlay:hover {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overlay-half {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 2s ease-in;
+    cursor: pointer;
+  }
+
+  .overlay-half:hover {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    width: 100%;
+    opacity: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .conservation-list {
+    position: absolute;
+    top: 0;
+    margin-left: 0.8em;
+    text-wrap: wrap;
+    font-family: var(--default-font);
+    font-size: 1rem;
+    color: var(--primary-color);
+    list-style: animal-lists;
+  }
+
+  .medication-list {
+    position: absolute;
+    top: 0;
+    margin-left: 0.8em;
+    text-wrap: wrap;
+    font-family: var(--default-font);
+    font-size: 1rem;
+    color: var(--primary-color);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-container {
+    width: 100%;
+    height: 15%;
+    background-color: var(--header-color);
+    color: #ffffff;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .header-lang-wrapper {
+    display: flex;
+    column-gap: 1em;
+    align-items: center;
+  }
+
+  .header-lang-wrapper > p {
+    transition: all 0.3s;
+    width: auto;
+    height: 100%;
+    align-items: center;
+    display: flex;
+  }
+
+  .header-lang-wrapper > p:hover {
+    display: flex;
+    background-color: var(--primary-color);
+    color: var(--header-color);
+    width: auto;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .header-search-bar {
+    width: 10em;
+    display: grid;
+    grid-template-columns: 1.5em 100%;
+    grid-template-rows: 2em;
+    margin-top: 0.3em;
+  }
+  .search-svg {
+    width: 1.75em;
+    height: 1.75em;
+    background-color: white;
+    border: none;
+    border-radius: 3px;
+  }
+
+  input[type="text"] {
+    border: none;
+    height: 1.95em;
+    border-radius: 3px;
+    width: 15em;
+  }
+  input[type="text"]:focus {
+    outline: none;
+  }
+
+
+  .nav-menu-items {
+    display: none;
+  }
+  .nav-symbol-menu-wrapper {
+    display: flex;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition-property: color;
+    transition-duration: 0.5s;
+  }
+
+  a:visited {
+    color: var(--text-color);
+  }
+
+  a:hover {
+    color: var(--primary-hover-text);
+  }
+
+  .sticky-container {
+    display: flex;
+    background-color: var(--primary-color);
+    justify-content: space-between;
+    align-items: center;
+    height: 5%;
+    margin-bottom: 2em;
+    width: 100%;
+    border-bottom: 1.75px black solid;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .nav-menu-wrapper,
+  .nav-logo-wrapper {
+    display: flex;
+    column-gap: 1em;
+    align-items: center;
+    margin: 0 0.8em;
+  }
+
+  .nav-logo-wrapper > h1,
+  h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-family: var(--brand-font);
+  }
+  .nav-menu-items > a {
+    font-size: 1.5rem;
+    font-family: var(--brand-font);
+    text-transform: uppercase;
+  }
+  .main-logo {
+    width: 20vw;
+    height: 10vh;
+  }
+
+  .main-bg {
+    width: 100%;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 1.5em;
+    margin-top: 2em;
+    width: 100%;
+  }
+  .flex-text > img {
+    width: 10%;
+    height: 10%;
+    float: left;
+    margin-right: 2em;
+  }
+
+  .flex-text > p {
+    text-align: justify;
+    margin-right: 1em;
+  }
+
+  .flex-container > h2 {
+    margin-left: 0.5em;
+  }
+
+  .grid-container {
+    display: grid;
+    width: 100%;
+    height: 150vh;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    row-gap: 0.5em;
+    column-gap: 0.3em;
+    background-image: url(https://img.freepik.com/free-vector/wrinkled-paper-texture_1100-12.jpg?size=626&ext=jpg&ga=GA1.1.1413411104.1708397182&semt=ais);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .grid-item {
+    width: 100%;
+    height: 100%;
+  }
+
+  #grid-1 {
+    grid-column: span 2;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10%;
+    position: relative;
+  }
+
+  #grid-2 {
+    grid-column: span 2;
+    grid-row: span 1;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  #grid-3 {
+    grid-column: span 1;
+    grid-row: span 1;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  #grid-4 {
+    grid-row: span 2;
+    grid-column: span 1;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  #grid-5 {
+    grid-row: span 1;
+    grid-column: span 1;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .svg-grid {
+    width: 25vw;
+    height: 25vh;
+  }
+
+  .medium-card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 5%;
+  }
+
+  .medium-card .large {
+    font-family: var(--brand-font);
+    font-size: 3.5vw;
+    text-wrap: wrap;
+    text-shadow: 3px 4px 14px black;
+
+  }
+
+  .breath {
+    animation-name: breathing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    font-family: var(--brand-font);
+    font-size: 3.5vw;
+    text-wrap: wrap;
+    text-shadow: 3px 4px 14px black;
+    margin-top: 0;
+  }
+
+  .image-in-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  p.card-content.medium {
+    position: absolute;
+    top: 0;
+    margin-left: 0.8em;
+    text-wrap: wrap;
+    font-family: var(--default-font);
+    font-size: 1.8rem;
+    color: var(--primary-color);
+  }
+
+  .overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 1s ease-out;
+    cursor: pointer;
+  }
+
+  .overlay:hover {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overlay-half {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 2s ease-in;
+    cursor: pointer;
+  }
+
+  .overlay-half:hover {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    width: 100%;
+    opacity: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .conservation-list {
+    position: absolute;
+    top: 0;
+    margin-left: 0.8em;
+    text-wrap: wrap;
+    font-family: var(--default-font);
+    font-size: 0.8em;
+    color: var(--primary-color);
+    list-style: animal-lists;
+  }
+
+  .medication-list {
+    position: absolute;
+    top: 0;
+    margin-left: 0.8em;
+    text-wrap: wrap;
+    font-family: var(--default-font);
+    font-size: 0.8rem;
+    color: var(--primary-color);
+  }
+
 }
