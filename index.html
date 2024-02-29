@@ -400,26 +400,79 @@
         </div>
       </section>
       <section class="flex-container">
-        <h2 id="donate">Donate</h2>
-        <p>
-          By donating, you will take a huge part in contributing to the Wildlife
-          Conservation Programme.
-        </p>
-        <p>To donate, please fill the form below:</p>
         <form action="POST" class="form-container">
-          <div class="input-container">
-            <label for="first">First Name</label>
-            <input id="first" type="text" />
+          <h2 id="donate">Donate</h2>
+          <p>
+            By donating, you will take a huge part in contributing to the
+            Wildlife Conservation Programme.
+          </p>
+          <p>To donate, please fill the form below:</p>
+          <div class="input-container x-axis big">
+            <input
+              id="first"
+              type="text"
+              placeholder="Enter your first name..."
+            />
+            <input
+              id="last"
+              type="text"
+              placeholder="Enter your last name..."
+            />
           </div>
-          <div class="input-container"></div>
+          <div class="input-container y-axis">
+            <p>Enter your date of birth:</p>
+            <input id="dob" type="date" />
+          </div>
+          <p>Enter your donation amount</p>
+          <div class="donation-flex x-axis">
+            <div class="input-container x-axis small">
+              <input
+                type="checkbox"
+                name="25-thousand"
+                id="25-thousand"
+                value="25000"
+              />
+              <label for="25-thousand">Rp. 25.000</label>
+            </div>
+            <div class="input-container x-axis small">
+              <input
+                type="checkbox"
+                name="50-thousand"
+                id="50-thousand"
+                value="50000"
+              />
+              <label for="25-thousand">Rp. 50.000</label>
+            </div>
+            <div class="input-container x-axis small">
+              <input
+                type="checkbox"
+                name="75-thousand"
+                id="75-thousand"
+                value="75000"
+              />
+              <label for="75-thousand">Rp. 75.000</label>
+            </div>
+            <div class="input-container x-axis small">
+              <input
+                type="checkbox"
+                name="100-thousand"
+                id="100-thousand"
+                value="100000"
+              />
+              <label for="100-thousand">Rp. 100.000</label>
+            </div>
+          </div>
         </form>
+        <div class="support-us">
+          <p>By donating you support one of us:</p>
+        </div>
       </section>
     </main>
-    <footer class="footer-grid-container">
-      <div class="footer-grid-item"></div>
-      <div class="footer-grid-item"></div>
-      <div class="footer-grid-item"></div>
-      <div class="footer-grid-item"></div>
+    <footer class="footer-flex-container">
+      <ul class="footer-flex-item"></ul>
+      <ul class="footer-flex-item"></ul>
+      <ul class="footer-flex-item"></ul>
+      <ul class="footer-flex-item"></ul>
     </footer>
   </body>
 </html>
