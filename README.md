@@ -1,20 +1,34 @@
 # Save Our Wildlife Foundation
 
 
-[Visit our page!](https://65d8cb9d8238d728998f1f3e--startling-hummingbird-8b6df1.netlify.app/)
+[Visit our page!](https://zdp-portofolio.online/)
 
-## Table of Contents
+## Deployment Steps
 
-- About Us
+- Buying a Domain
 
-- How to visit my webpage
-
-- How to 
+- Connect GitHub to Netlify
 
 - [Contact me](#contact-me)
 
 
+## Buying a Domain
 
+1. Look for a Registrar, in my case, I use Niagahoster, a local Indonesian Web Hosting Service and DNS Registrar.
+
+2. Choose a Top Level Domain (e.g. `.com`, `.io`, `.online`, etc.).
+
+3. Configure your own domain name (DNS).
+
+4. Check out the created domain name.
+
+5. Since the IP already embedded within the DNS, the last step is to wait until the Transaction is completed.
+
+## Connect GitHub to Netlify 
+
+1. After successfully bought the domain, check the our dashboard in the registrar website, and look for DNS nameserver.
+
+2. While opening the dashboard, I opened 
 
 ## This is a submission for Checkpoint #1 Module 2
 
